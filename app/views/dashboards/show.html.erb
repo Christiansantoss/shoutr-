@@ -2,13 +2,8 @@
 
 <%= form_for @shout do |form| %>
   <%= form.text_field :body, placeholder: "shout here!", required: true %>
+
   <%= form.submit "shout!" %>
 <% end %>
 
-<% @shouts.each do |shout| %>
-  <div>
-    <%= shout.user.username %>
-    <%= shout.body %>
-    <%= time_ago_in_words(shout.created_at)%> ago 
-  </div>
-<% end %>
+<%= render @shouts %>
