@@ -8,17 +8,17 @@ class ShoutsController < ApplicationController
     redirect_to root_path, redirect_options_for(shout)
   end
 
-    private 
+  private 
 
     def shout_params
       params.require(:shout).permit(:body)
     end
 
     def redirect_options_for(shout)
-        if shout.persisted?
-          { notice: "shouted sucessfully" }
-        else
-          { alert: "could not shout" }
-        end
+      if shout.persisted?
+        { notice: "shouted sucessfully" }
+      else
+        { alert: "could not shout" }
+      end
     end
 end
